@@ -1,6 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchPosts } from '../actions/index';
+import { Link } from 'react-router';
 
-export default  () => {
+class PostsIndex extends Component {
 
-  return <div> Blog posts here </div>;
+//this method is only called once, when react renders this component,
+  componentWillMount(){
+
+    this.props.fetchPosts();
+
+  }
+
+  render(){
+
+    return(
+      <div>
+        <div className="text-xs-right">
+          <Link to="posts/new" className="btn btn-primary">
+          Add a post
+        </Link>
+        </div>
+        List of blog posts
+      </div>
+    );
+  }
+
 }
+
+export default connect (null, { fetchPosts })(PostsIndex);
