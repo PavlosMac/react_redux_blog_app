@@ -1,5 +1,5 @@
 import { FETCH_POSTS, FETCH_POST } from '../actions/index';
-//considering index(list) and single blog post
+//below are the two pieces of state for this reducer.
 const INITIAL_STATE = { all: [], post: null };
 
 

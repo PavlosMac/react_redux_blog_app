@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 class PostsIndex extends Component {
 
-//this method is only called once, when react renders this component,
+//this method is called just before the component is about to mount
   componentWillMount(){
 //this calls the action creator
     this.props.fetchPosts();
@@ -14,6 +14,7 @@ class PostsIndex extends Component {
 
   renderPosts() {
     return this.props.posts.map((post) => {
+      console.log(post)
       return (
         <li className="list-group-item" key={post.id}>
           <Link path={'posts/' + post.id} >
@@ -45,7 +46,7 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.posts.all )
+
   return { posts: state.posts.all }
 }
 
